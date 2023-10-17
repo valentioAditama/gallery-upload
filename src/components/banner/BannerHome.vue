@@ -4,7 +4,7 @@ import modal from '../modal/uploadImage.vue'
 
 <template>
   <section
-    class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-gray-700 bg-blend-multiply"
+    class="bg-center bg-[url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1470')] bg-gray-700 bg-blend-multiply"
   >
     <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
       <h1

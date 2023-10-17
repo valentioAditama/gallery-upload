@@ -15,7 +15,7 @@ import banner from '../components/banner/BannerHome.vue'
         <a href="#"></a>
         <div class="relative">
           <a href="#">
-            <img class="object-cover h-48 w-96" :src="imageUrl" alt="Sunset in the mountains" />
+            <img class="object-cover h-48 w-full" :src="imageUrl" alt="Sunset in the mountains" />
             <div
               class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"
             ></div>

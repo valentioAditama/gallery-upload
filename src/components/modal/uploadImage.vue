@@ -179,18 +179,6 @@ export default {
         return // Terminate the function
       }
 
-      // check maxSize images
-      const fileSizeInKB = imageInput.size / 1024 // convert to kb
-      if (fileSizeInKB > 2048) {
-        Swal.fire({
-          icon: 'error',
-          title: 'error',
-          text: 'File gambar terlalu besar (Maksimal 2048 KB)'
-        })
-        this.isLoading = false
-        return // Terminate the function
-      }
-
       // Create FormData object to store an image file
       const formData = new FormData()
       formData.append('image', imageInput)
@@ -204,8 +192,18 @@ export default {
         .then((response) => {
           // Handle the response from the API and display an alert
           console.log(response)
-          if (response.data.status === 200) {
+           // check maxSize images
+          const fileSizeInKB = imageInput.size / 1024 // convert to kb
+          if (fileSizeInKB > 2048) {
             Swal.fire({
+              icon: 'error',
+              title: 'error',
+              text: 'File gambar terlalu besar (Maksimal 2048 KB)'
+            })
+            this.isLoading = false
+            return // Terminate the function
+          } else if (response.data.status === 200) {
+             Swal.fire({
               icon: 'success',
               title: 'Success',
               text: 'Gambar berhasil diupload'
@@ -220,7 +218,7 @@ export default {
               title: 'Error',
               text: 'Upload Error'
             })
-          }
+          } 
         })
         .catch((err) => {
           // Handle the error response from the API and display an alert
@@ -242,7 +240,11 @@ export default {
         .finally(() => {
           this.isLoading = false // Set Loading to false
           document.getElementById('defaultModal').classList.add('hidden-modal')
-          this.selectedImage = null
+          this.selectedImage = null // clean image from onchange 
+          // auto refresh after uploaded
+          setTimeout(() => {
+            window.location.reload();
+          }, 3000);
         })
     }
   }
