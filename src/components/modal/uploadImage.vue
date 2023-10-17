@@ -192,7 +192,7 @@ export default {
         .then((response) => {
           // Handle the response from the API and display an alert
           console.log(response)
-           // check maxSize images
+          // check maxSize images
           const fileSizeInKB = imageInput.size / 1024 // convert to kb
           if (fileSizeInKB > 2048) {
             Swal.fire({
@@ -203,7 +203,7 @@ export default {
             this.isLoading = false
             return // Terminate the function
           } else if (response.data.status === 200) {
-             Swal.fire({
+            Swal.fire({
               icon: 'success',
               title: 'Success',
               text: 'Gambar berhasil diupload'
@@ -218,7 +218,7 @@ export default {
               title: 'Error',
               text: 'Upload Error'
             })
-          } 
+          }
         })
         .catch((err) => {
           // Handle the error response from the API and display an alert
@@ -240,11 +240,11 @@ export default {
         .finally(() => {
           this.isLoading = false // Set Loading to false
           document.getElementById('defaultModal').classList.add('hidden-modal')
-          this.selectedImage = null // clean image from onchange 
+          this.selectedImage = null // clean image from onchange
           // auto refresh after uploaded
           setTimeout(() => {
-            window.location.reload();
-          }, 3000);
+            window.location.reload()
+          }, 3000)
         })
     }
   }
